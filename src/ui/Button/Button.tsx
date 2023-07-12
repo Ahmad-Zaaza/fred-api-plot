@@ -4,7 +4,7 @@ import { cva, cx } from "cva";
 import Spinner from "../Spinner/Spinner";
 // import { Tooltip, TooltipPosition } from "../Tooltip";
 
-const buttonStyles = cva(
+export const buttonStyles = cva(
   [
     "relative",
     "text-sm",

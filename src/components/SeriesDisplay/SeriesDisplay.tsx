@@ -8,6 +8,7 @@ import { Box } from "@/ui/Box";
 import { Text } from "@/ui/Text";
 import { chartConfig } from "@/lib/constants/chartsConfig";
 import dynamic from "next/dynamic";
+import DatePicker from "@/ui/DatePicker/DatePicker";
 
 const Chart = dynamic(() => import("@/components/Charts/Chart"), {
   ssr: false,
@@ -26,6 +27,7 @@ const SeriesDisplay = ({ title, series_id }: IProps) => {
     <Box>
       <Text variant="titleLarge">{title}</Text>
       <Text>{title}</Text>
+      <DatePicker />
 
       {isLoading ? (
         "Loading..."
