@@ -2,12 +2,17 @@ import { TSeriesId } from "@/hooks/data/fred/fred.types";
 import { useGetObservationsById } from "@/hooks/data/fred/fredQueries.hooks";
 import { Box } from "@/ui/Box";
 import { Text } from "@/ui/Text";
-import { chartConfig, dates } from "@/lib/constants/chartsConfig";
+import {
+  chartConfig,
+  dates,
+  minStartDates,
+} from "@/lib/constants/chartsConfig";
 import dynamic from "next/dynamic";
 import { Stack } from "@/ui/Stack";
 import { Spinner } from "@/ui/Spinner";
 import DatePicker from "@/ui/DatePicker/DatePicker";
 import { useState } from "react";
+import { isAfter, isBefore } from "date-fns";
 const Chart = dynamic(() => import("@/components/Charts/Chart"), {
   ssr: false,
 });
@@ -30,6 +35,9 @@ const SeriesDisplay = ({ title, series_id }: IProps) => {
       <Text variant="titleLarge">{title}</Text>
       <Stack mt={4} justifyContent="flex-end" gap={2} alignItems="center">
         <DatePicker
+          disabledDate={(date) => {
+            return isBefore(date, new Date(minStartDates[series_id]));
+          }}
           value={new Date(date.start)}
           onChange={(_, dateString) => {
             setDate((prev) => ({ ...prev, start: dateString }));
@@ -37,6 +45,9 @@ const SeriesDisplay = ({ title, series_id }: IProps) => {
         />
         <Text>to</Text>
         <DatePicker
+          disabledDate={(date) => {
+            return isAfter(date, new Date());
+          }}
           value={new Date(date.end)}
           onChange={(_, dateString) => {
             setDate((prev) => ({ ...prev, end: dateString }));

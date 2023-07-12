@@ -145,3 +145,8 @@ export const dates: Record<TSeriesId, { start: string; end: string }> = {
       start: "2003-01-02",
     },
   };
+export const minStartDates: Record<TSeriesId, string> = {
+    T10Y2Y: "1976-06-01",
+    GDPCA: "1929-01-01",
+    "DGS10-T10YIE": "2003-01-02",
+  };
