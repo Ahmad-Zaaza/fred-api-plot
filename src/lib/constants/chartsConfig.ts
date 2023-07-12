@@ -49,7 +49,7 @@ export const chartConfig = {
             ],
         };
     },
-    DGS10minusT10YIE(data: IObservation[]): EChartsOption {
+    "DGS10-T10YIE"(data: IObservation[]): EChartsOption {
         return {
             tooltip: {
                 trigger: "axis",
