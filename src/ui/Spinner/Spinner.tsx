@@ -1,6 +1,13 @@
-const Spinner = () => {
+interface ISpinnerProps {
+  size?: number;
+}
+
+const Spinner = ({ size = 24 }: ISpinnerProps) => {
   return (
-    <div className="animate-rotate360 bg-transparent rounded-full w-[24px] h-[24px] border-b-gray-300 border-l-gray-300 border-[3px] transform-gpu  border-t-transparent  border-r-transparent" />
+    <div
+      style={{ height: size, width: size }}
+      className="animate-rotate360 bg-transparent rounded-full  border-b-gray-300 border-l-gray-300 border-[3px] transform-gpu  border-t-transparent  border-r-transparent"
+    />
   );
 };
 

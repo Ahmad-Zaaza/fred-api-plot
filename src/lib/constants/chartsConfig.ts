@@ -1,4 +1,5 @@
-import { IObservation } from "@/hooks/data/fred/fred.types"
+import { IObservation, TSeriesId } from "@/hooks/data/fred/fred.types"
+import { format, subYears } from "date-fns";
 import type { EChartsOption } from "echarts";
 
 export const chartConfig = {
@@ -26,10 +27,9 @@ export const chartConfig = {
             dataZoom: [
                 {
                     type: "inside",
-                    start: 50,
-                    end: 100,
+
                 },
-                { type: "slider", start: 50, end: 100 },
+                { type: "slider", },
             ],
 
             series: [
@@ -66,15 +66,16 @@ export const chartConfig = {
             },
             yAxis: {
                 type: "value",
+
                 boundaryGap: ['0%', '0%']
             },
             dataZoom: [
                 {
                     type: "inside",
-                    start: 50,
+                    start: 0,
                     end: 100,
                 },
-                { type: "slider", start: 50, end: 100 },
+                { type: "slider", start: 0, end: 100 },
             ],
 
             series: [
@@ -109,7 +110,7 @@ export const chartConfig = {
                 boundaryGap: ['0%', '0%']
             },
             yAxis: {
-                type: "value",
+                type: "value", name: "Billions of Chained 2012 Dollars",
                 boundaryGap: ['0%', '0%']
             },
             dataZoom: [
@@ -129,3 +130,18 @@ export const chartConfig = {
 
     }
 }
+
+export const dates: Record<TSeriesId, { start: string; end: string }> = {
+    T10Y2Y: {
+      end: format(new Date(), "yyyy-MM-dd"),
+      start: format(subYears(new Date(), 10), "yyyy-MM-dd"),
+    },
+    GDPCA: {
+      end: format(new Date(), "yyyy-MM-dd"),
+      start: format(subYears(new Date(), 20), "yyyy-MM-dd"),
+    },
+    "DGS10-T10YIE": {
+      end: format(new Date(), "yyyy-MM-dd"),
+      start: "2003-01-02",
+    },
+  };
