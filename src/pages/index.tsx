@@ -1,9 +1,6 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import {
-  useGetDGS10minusT10YIEObservations,
-  useGetObservationsById,
-} from "@/hooks/data/fred/fredQueries.hooks";
+import { useGetObservationsById } from "@/hooks/data/fred/fredQueries.hooks";
 import SeriesDisplay from "@/components/SeriesContainer/SeriesDisplay";
 import { Box } from "@/ui/Box";
 import { chartConfig } from "@/lib/constants/chartsConfig";
@@ -24,7 +21,7 @@ export default function Home() {
     series_id: "GDPCA",
   });
   const { data: DGS10minusT10YIEData, isLoading: DGS10minusT10YIELoading } =
-    useGetDGS10minusT10YIEObservations();
+    useGetObservationsById({ series_id: "DGS10-T10YIE" });
 
   return (
     <div className="max-w-[1366px] container mx-auto">

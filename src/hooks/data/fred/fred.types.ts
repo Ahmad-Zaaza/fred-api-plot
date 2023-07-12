@@ -1,4 +1,4 @@
-export type TSeriesId = "T10Y2Y" | "GDPCA";
+export type TSeriesId = "T10Y2Y" | "GDPCA" | "DGS10-T10YIE";
 
 export interface IObservation {
   date: string;
