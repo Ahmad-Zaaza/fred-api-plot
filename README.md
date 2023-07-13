@@ -10,5 +10,5 @@ Another Plus point of using Next.js that it allows us not to expose the Fred API
 
 1. Run ``` git clone https://github.com/Ahmad-Zaaza/fred-api-plot.git ```
 2. Run ``` npm install ```
-3. Create ``` .env ``` file and add ``` API_KEY=<YOUR_API_KEY> ```
+3. Create ``` .env.local ``` file and add ``` API_KEY=<YOUR_API_KEY> ```
 4. Run ``` npm run dev ```

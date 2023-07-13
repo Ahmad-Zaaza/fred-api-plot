@@ -131,6 +131,13 @@ export const chartConfig = {
     return {
       tooltip: {
         trigger: "axis",
+        formatter: (params: any) => {
+          return `
+               ${format(new Date(params[0].axisValueLabel), "dd-MM-yyyy")} : ${
+            isNaN(params[0].data[1]) ? "No data" : `${params[0].data[1]}$B`
+          }
+              `;
+        },
       },
       grid: {
         left: "3%",

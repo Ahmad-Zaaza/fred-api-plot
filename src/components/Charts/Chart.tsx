@@ -18,8 +18,11 @@ const Chart = ({ options }: { options: EChartsOption }) => {
     .getPropertyValue("--primary-color");
 
   useEffect(() => {
-    init(ref.current as HTMLElement).setOption({
-      // color: `rgb(${PrimaryColor})`,
+    let instance = getInstanceByDom(ref.current as HTMLElement);
+    if (!instance) {
+      instance = init(ref.current as HTMLElement);
+    }
+    instance?.setOption({
       useDirtyRect: true,
       ...options,
     });
