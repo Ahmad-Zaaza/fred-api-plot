@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import * as Polymorphic from "../../types/polymorphic";
+import * as Polymorphic from "@/lib/types/polymorphic";
 import { IBoxProps } from "./Box.types";
 import useBoxProps from "./useBoxProps";
 import { cva } from "cva";
