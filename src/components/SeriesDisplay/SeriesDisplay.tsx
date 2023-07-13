@@ -13,6 +13,7 @@ import { Spinner } from "@/ui/Spinner";
 import DatePicker from "@/ui/DatePicker/DatePicker";
 import { useState } from "react";
 import { isAfter, isBefore } from "date-fns";
+
 const Chart = dynamic(() => import("@/components/Charts/Chart"), {
   ssr: false,
 });
@@ -23,7 +24,7 @@ interface IProps {
 }
 
 const SeriesDisplay = ({ title, series_id }: IProps) => {
-  // Ideally, would be coming with the data source
+  // Ideally, start and end dates would be coming with the data source
   const [date, setDate] = useState(dates[series_id]);
   const { data, isLoading, isError } = useGetObservationsById({
     series_id,
